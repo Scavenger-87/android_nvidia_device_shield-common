@@ -49,6 +49,10 @@ on boot
     write /sys/module/input_cfboost/parameters/boost_time 2000
     write /sys/module/input_cfboost/parameters/boost_cpus 3
 
+    # Little VM tweaks
+    write /proc/sys/vm/swappiness 80
+    write /proc/sys/vm/vfs_cache_pressure 100
+    
     #Prepare CPU/EMC freq scaling based on DT by default
     chown system system /sys/kernel/tegra_cpu_emc/table_src
     write /sys/kernel/tegra_cpu_emc/table_src 1
